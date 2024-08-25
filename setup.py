@@ -1,7 +1,7 @@
 import py2exe
 
 py2exe.freeze(
-      options={'compressed': 1, 'optimize': 1, 'bundle_files': 0},
-      console=[{'script': "battery.py"}],
+      options={'compressed': 1, 'optimize': 2, 'bundle_files': 0},
+      windows=[{'script': "battery.py"}],
       zipfile=None,
 )
