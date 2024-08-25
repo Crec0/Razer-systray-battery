@@ -2,7 +2,7 @@
 
 ## Introduction
 
-This is a HEAVILY modified version of the [script by Tung Yu Hsu](https://github.com/hsutungyu/razer-mouse-battery-windows)  
+This is a HEAVILY modified (basically a rewrite) version of the [script by Tung Yu Hsu](https://github.com/hsutungyu/razer-mouse-battery-windows)  
 If you want to use the original script, please go to the link above.
 
 ## Changes made
