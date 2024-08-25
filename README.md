@@ -24,3 +24,12 @@ If you want to use the original script, please go to the link above.
 - Run `python3 setup.py`
 - The executable will be in the `dist` folder.
 - Throw the executable into the startup folder to run on startup
+
+
+## Images
+
+![Tray](./images/title-tray.png)
+
+
+![Tray](./images/menu-exit.png)
+
