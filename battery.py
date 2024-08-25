@@ -27,6 +27,9 @@ VENDOR_ID = 0x1532
 # https://github.com/openrazer/openrazer/blob/master/driver/razermouse_driver.c#L1176
 TRANSACTION_ID = 0x1F
 
+# Refresh interval in seconds. Default is 5 minutes
+REFRESH_INTERVAL = 300
+
 # IDK why you would want to change this. It's the size of the image. Keep it 64.
 IMG_SIZE = 64
 
@@ -137,7 +140,7 @@ def on_clicked(icon: pystray.Icon):
 
 def schedule_job(icon: pystray.Icon):
     icon.visible = True
-    schedule.every(1).minutes.do(refresh_tray_icon, icon)
+    schedule.every(REFRESH_INTERVAL).seconds.do(refresh_tray_icon, icon)
     while continue_running:
         schedule.run_pending()
         time.sleep(1)

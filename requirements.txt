@@ -2,3 +2,4 @@ pyusb==1.2.1
 pystray==0.19.5
 pillow==10.4.0
 schedule~=1.2.2
+py2exe~=0.13.0.2

@@ -17,3 +17,10 @@ If you want to use the original script, please go to the link above.
 - Right click menu has exit button to kill the script
 - Uses py2exe to create a standalone executable, which can be thrown into the startup folder
 - Removed the requirement of using Task Schedular. Not my cup of tea.
+
+## To compile
+
+- Install the requirements using `pip install -r requirements.txt`
+- Run `python3 setup.py`
+- The executable will be in the `dist` folder.
+- Throw the executable into the startup folder to run on startup
