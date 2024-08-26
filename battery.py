@@ -5,7 +5,8 @@ import pystray
 import schedule
 import usb.core
 import usb.util
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, ImageFont
+from PIL.ImageFont import FreeTypeFont
 from pystray import MenuItem, Menu
 from usb.backend import libusb1
 from usb.core import Device
@@ -92,12 +93,9 @@ def get_battery() -> int:
     return int(result[9] / 255 * 100)
 
 
-def text_width(text: str, font_size: int):
+def text_width(text: str, font: FreeTypeFont):
     draw = ImageDraw.Draw(Image.new("1", (1, 1)))
-    draw.text((0, 0), text, fill="white")
-    _, _, w, h = draw.textbbox(
-        xy=(0, 0), text=text, font_size=font_size, stroke_width=1
-    )
+    _, _, w, h = draw.textbbox(xy=(0, 0), text=text, font=font)
     return w, h
 
 
@@ -118,14 +116,15 @@ def battery_img(battery: int):
     ctx = ImageDraw.Draw(image)
 
     color, font_size = color_font_size_per_battery(battery)
-    w, h = text_width(str_bat, font_size)
+    font = ImageFont.truetype("Roboto-Regular.ttf", font_size)
+
+    w, h = text_width(str_bat, font)
 
     ctx.text(
         ((IMG_SIZE - w) // 2, IMG_SIZE // 2 - 2 * h // 3),
         str_bat,
-        fill=color,
-        font_size=font_size,
-        stroke_width=1,
+        color,
+        font,
     )
 
     return image
