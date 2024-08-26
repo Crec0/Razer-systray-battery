@@ -2,3 +2,5 @@
 .idea
 .ruff_cache
 dist
+build
+battery.spec
