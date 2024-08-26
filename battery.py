@@ -31,7 +31,7 @@ TRANSACTION_ID = 0x1F
 REFRESH_INTERVAL = 300
 
 # IDK why you would want to change this. It's the size of the image. Keep it 64.
-IMG_SIZE = 64
+IMG_SIZE = 256
 
 # Don't touch this. Just a funny global variable to track state.
 continue_running = True
@@ -92,19 +92,23 @@ def get_battery() -> int:
     return int(result[9] / 255 * 100)
 
 
-def text_width(text: str):
+def text_width(text: str, font_size: int):
     draw = ImageDraw.Draw(Image.new("1", (1, 1)))
     draw.text((0, 0), text, fill="white")
-    _, _, w, h = draw.textbbox(xy=(0, 0), text=text, font_size=54, stroke_width=1)
+    _, _, w, h = draw.textbbox(
+        xy=(0, 0), text=text, font_size=font_size, stroke_width=1
+    )
     return w, h
 
 
-def text_color_per_battery(battery: int):
-    if battery < 5:
-        return "#ff6b81"
+def color_font_size_per_battery(battery: int) -> tuple[str, int]:
+    if battery == 100:
+        return "#0abde3", 147
     if battery > 95:
-        return "#70a1ff"
-    return "#7bed9f"
+        return "#0abde3", 219
+    if battery < 10:
+        return "#ff6b6b", 258
+    return "#7bed9f", 219
 
 
 def battery_img(battery: int):
@@ -112,14 +116,15 @@ def battery_img(battery: int):
 
     image = Image.new("RGBA", (IMG_SIZE, IMG_SIZE))
     ctx = ImageDraw.Draw(image)
-    w, h = text_width(str_bat)
-    color = text_color_per_battery(battery)
+
+    color, font_size = color_font_size_per_battery(battery)
+    w, h = text_width(str_bat, font_size)
 
     ctx.text(
         ((IMG_SIZE - w) // 2, IMG_SIZE // 2 - 2 * h // 3),
         str_bat,
         fill=color,
-        font_size=54,
+        font_size=font_size,
         stroke_width=1,
     )
 
@@ -132,7 +137,7 @@ def refresh_tray_icon(icon: pystray.Icon):
     icon.icon = battery_img(bat)
 
 
-def on_clicked(icon: pystray.Icon):
+def end_script(icon: pystray.Icon):
     global continue_running
     continue_running = False
     icon.stop()
@@ -147,13 +152,11 @@ def schedule_job(icon: pystray.Icon):
 
 
 def main():
-    bat = get_battery()
     icon = pystray.Icon(
         name="DeathAdder V3 Battery",
-        title=f"Battery: {bat}%",
-        icon=battery_img(bat),
-        menu=Menu(MenuItem("Exit", on_clicked)),
+        menu=Menu(MenuItem("Refresh", refresh_tray_icon), MenuItem("Exit", end_script)),
     )
+    refresh_tray_icon(icon)
     icon.run(setup=schedule_job)
 
 

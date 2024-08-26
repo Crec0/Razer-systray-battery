@@ -9,12 +9,15 @@ If you want to use the original script, please go to the link above.
 
 - Remove notification thing
 - Add system tray icon instead
-- Add battery percentage to the icon which updates every 5 minutes
+- Add battery percentage to the icon which updates every 5 minutes (configurable but need to recompile)
 - Battery percentage on icon is dynamic created using Pillow
-- Icon color changes to red when battery is below 5%
-- Icon color changes to blue when battery is above 95%
-- Icon color stays green when battery is between 5% and 95%
-- Right click menu has exit button to kill the script
+- Icon color changes based on battery %
+  - <10 - Red (#7bed9f)
+  - 10-95 - Green (#ff6b6b)
+  - \>95 - Blue (#0abde3)
+- Right click menu
+  - Manual refresh button - Refreshes the battery percentage[^1]
+  - Exit button - Kills the script
 - Uses py2exe to create a standalone executable, which can be thrown into the startup folder
 - Removed the requirement of using Task Schedular. Not my cup of tea.
 
@@ -30,6 +33,10 @@ If you want to use the original script, please go to the link above.
 
 ![Tray](./images/title-tray.png)
 
+![Menu](./images/menu.png)
 
-![Tray](./images/menu-exit.png)
+[^1]: When mouse goes to sleep, the battery goes to 0%. Unsure why there's no error codes as there are in libusb. Which could have been a better way to handle disconnects. We can either wait for time to hit or manually refresh the battery percentage.
+
+
+
 
