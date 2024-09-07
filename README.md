@@ -13,8 +13,8 @@ If you want to use the original script, please go to the link above.
 - Battery percentage on icon is dynamic created using Pillow
 - Icon color changes based on battery %
   - <10 - Red (#7bed9f)
-  - 10-95 - Green (#ff6b6b)
-  - \>95 - Blue (#0abde3)
+  - \>10 - Green (#ff6b6b)
+  - Charging - Blue (#0abde3)
 - Right click menu
   - Manual refresh button - Refreshes the battery percentage[^1]
   - Exit button - Kills the script
@@ -33,7 +33,10 @@ If you want to use the original script, please go to the link above.
 
 ![Tray](./images/title-tray.png)
 
+![Charging](./images/charging.png)
+
 ![Menu](./images/menu.png)
+
 
 [^1]: When mouse goes to sleep, the battery goes to 0%. Unsure why there's no error codes as there are in libusb. Which could have been a better way to handle disconnects. We can either wait for time to hit or manually refresh the battery percentage.
 
