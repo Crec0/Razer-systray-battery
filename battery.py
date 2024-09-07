@@ -29,7 +29,7 @@ VENDOR_ID = 0x1532
 # https://github.com/openrazer/openrazer/blob/master/driver/razermouse_driver.c#L1176
 TRANSACTION_ID = 0x1F
 
-# Refresh interval in seconds. Default is 5 minutes
+# Refresh interval in seconds.
 REFRESH_INTERVAL = 60
 
 # Font. If you don't like Seoge UI Bold, you can change it. ig.

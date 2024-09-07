@@ -9,7 +9,7 @@ If you want to use the original script, please go to the link above.
 
 - Remove notification thing
 - Add system tray icon instead
-- Add battery percentage to the icon which updates every 5 minutes (configurable but need to recompile)
+- Add battery percentage to the icon which updates every minute (configurable but need to recompile)
 - Battery percentage on icon is dynamic created using Pillow
 - Icon color changes based on battery %
   - <10 - Red (#7bed9f)
