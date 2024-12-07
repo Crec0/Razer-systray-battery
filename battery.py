@@ -57,7 +57,7 @@ def get_mouse() -> tuple[Device, bool]:
             return mouse, is_wireless
 
     raise RuntimeError(
-        f"The specified mouse (PID:{', '.join(map(lambda a: a[0], PRODUCT_WIRELESS_LIST))}) cannot be found."
+        f"The specified mice (PID: {', '.join(map(lambda a: str(a[0]), PRODUCT_WIRELESS_LIST))}) cannot be found."
     )
 
 
