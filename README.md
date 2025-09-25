@@ -21,12 +21,15 @@ If you want to use the original script, please go to the link above.
 - Uses py2exe to create a standalone executable, which can be thrown into the startup folder
 - Removed the requirement of using Task Schedular. Not my cup of tea.
 
-## To compile
+## To compile (using uv)
 
-- Install the requirements using `pip install -r requirements.txt`
-- Run `python3 setup.py`
-- The executable will be in the `dist` folder.
-- Throw the executable into the startup folder to run on startup
+- Make sure you have [uv](https://docs.astral.sh/uv/) installed.
+- Clone the project using `git clone git@github.com:Crec0/Razer-systray-battery.git`
+- `cd Razer-systray-battery`
+- Change the `PRODUCT_WIRELESS_LIST` and `TRANSACTION_ID` in `battery.py` to match your mouse version
+- Run `uv run ./setup.py`
+- Find the compiled exe in `dist` directory
+- If everything works well, you should see the battery percentage in system tray
 
 
 ## Images

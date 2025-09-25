@@ -22,12 +22,12 @@ PRODUCT_WIRELESS_LIST = [
     (0x00C3, True),
 ]
 
-# Razor Vendor ID. No need to change this
-VENDOR_ID = 0x1532
-
 # Find the transaction id from this switch statement
 # https://github.com/openrazer/openrazer/blob/master/driver/razermouse_driver.c#L1176
 TRANSACTION_ID = 0x1F
+
+# Razor Vendor ID. No need to change this
+VENDOR_ID = 0x1532
 
 # Refresh interval in seconds.
 REFRESH_INTERVAL = 60
@@ -35,7 +35,7 @@ REFRESH_INTERVAL = 60
 # Font. If you don't like Seoge UI Bold, you can change it. ig.
 FONT = "segoeuib.ttf"
 
-# IDK why you would want to change this. It's the size of the image. Keep it 64.
+# IDK why you would want to change this. It's the size of the image. Keep it 256.
 IMG_SIZE = 256
 
 # Don't touch this. Just a funny global variable to track state.

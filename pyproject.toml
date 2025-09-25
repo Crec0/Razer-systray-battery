@@ -1,0 +1,13 @@
+[project]
+name = "razer-systray-battery"
+version = "0.1.0"
+description = "Shows battery remaining for your razer wireless mice."
+readme = "README.md"
+requires-python = "~=3.11"
+dependencies = [
+    "pillow>=11.3.0",
+    "py2exe>=0.14.0.0",
+    "pystray>=0.19.5",
+    "pyusb>=1.3.1",
+    "schedule>=1.2.2",
+]
