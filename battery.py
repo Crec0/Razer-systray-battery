@@ -188,4 +188,9 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception as e:
+        import traceback
+        with open('battery_exit.log', 'a') as log_file:
+            traceback.print_exc(file=log_file)
