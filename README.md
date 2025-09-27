@@ -28,9 +28,15 @@ If you want to use the original script, please go to the link above.
 - `cd Razer-systray-battery`
 - Change the `PRODUCT_WIRELESS_LIST` and `TRANSACTION_ID` in `battery.py` to match your mouse version
 - Run `uv run ./setup.py`
-- Find the compiled exe in `dist` directory
+- Find the compiled `battery.exe` and `libusb-1.0.dll` in `dist` directory
+
+## Running the executable
+- Simply run the `battery.exe` :D
 - If everything works well, you should see the battery percentage in system tray
 
+## Auto Startup at boot
+- Copy paste both `battery.exe` and `libusb-1.0.dll` from `dist` directory into `%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup`
+- Run `battery.exe` once for current cycle. If you now reboot your PC, you will find it automatically running at startup in your system tray :D
 
 ## Images
 
