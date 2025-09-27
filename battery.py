@@ -2,14 +2,13 @@ import time
 from enum import IntEnum
 from functools import reduce
 
+import libusb_package
 import pystray
 import schedule
-import usb.core
 import usb.util
 from PIL import Image, ImageDraw, ImageFont
 from PIL.ImageFont import FreeTypeFont
 from pystray import MenuItem, Menu
-from usb.backend import libusb1
 from usb.core import Device
 
 # Find the product ID of your mouse from this list
@@ -48,10 +47,8 @@ class CommandID(IntEnum):
 
 
 def get_mouse() -> tuple[Device, bool]:
-    backend = libusb1.get_backend()
-
     for product_id, is_wireless in PRODUCT_WIRELESS_LIST:
-        mouse = usb.core.find(idVendor=VENDOR_ID, idProduct=product_id, backend=backend)
+        mouse = libusb_package.find(idVendor=VENDOR_ID, idProduct=product_id)
 
         if mouse:
             return mouse, is_wireless

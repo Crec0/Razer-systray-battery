@@ -5,6 +5,7 @@ description = "Shows battery remaining for your razer wireless mice."
 readme = "README.md"
 requires-python = "~=3.11"
 dependencies = [
+    "libusb-package>=1.0.26.3",
     "pillow>=11.3.0",
     "py2exe>=0.14.0.0",
     "pystray>=0.19.5",
