@@ -15,10 +15,12 @@ from usb.core import Device
 # https://github.com/openrazer/openrazer/blob/master/driver/razermouse_driver.h
 # The tuple is (product_id, is_wireless)
 PRODUCT_WIRELESS_LIST = [
-    (0x00B6, False),
-    (0x00B7, True),
-    (0x00C2, False),
-    (0x00C3, True),
+    (0x00B6, False), # DaV3
+    (0x00B7, True), # DaV3
+    (0x00C2, False), # DaV3 Alt
+    (0x00C3, True), # DaV3 Alt
+    (0x00A5, False), # Viper V2 Pro
+    (0x00A6, True), # Viper V2 Pro
 ]
 
 # Find the transaction id from this switch statement
